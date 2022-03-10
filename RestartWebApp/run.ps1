@@ -9,13 +9,13 @@ if ($Timer.IsPastDue) {
     Write-Host "PowerShell timer is running late!"
 }
 
-$appID = "543adfd8-d9d7-4a0c-9015-c1718d6a4ac9"
+$appID = "<Your App ID>"
 
-$password = "G0Q7Q~.anAvjQadCyjvEeKbIbfpGhVDMuuJEF"
+$password = "<Your AAD app Secret>"
 
-$tenantID = "72f988bf-86f1-41af-91ab-2d7cd011db47"
+$tenantID = "<Your Tenant ID>"
 
-$subscriptionID = "504215e5-c473-41bd-ad45-ab065b50d098"
+$subscriptionID = "<Your Subscription ID>"
 
 $secpasswd = ConvertTo-SecureString $password -AsPlainText -Force
 
@@ -23,7 +23,7 @@ $mycreds = New-Object -TypeName System.Management.Automation.PSCredential -Argum
 
 Connect-AzAccount -ServicePrincipal -TenantID $tenantID -SubscriptionId $subscriptionID -Credential $mycreds
 
-Restart-AzWebApp -ResourceGroupName "SethB-TestAppsRG" -Name "PStest-sethb"
+Restart-AzWebApp -ResourceGroupName "<Your Resource Group>" -Name "<Your App Name>"
 
 # Write an information log with the current time.
 Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
